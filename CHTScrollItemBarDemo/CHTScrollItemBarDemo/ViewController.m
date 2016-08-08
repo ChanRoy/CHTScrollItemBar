@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSArray *titles = @[@"小明",@"小红",@"小刚",@"小强",@"小雪",@"小鱼"];
+    NSArray *titles = @[@"小明",@"小红",@"小刚"];
     UIScrollView *relevantScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT - 40)];
     relevantScrollView.pagingEnabled = YES;
     relevantScrollView.showsHorizontalScrollIndicator = NO;
@@ -44,7 +44,7 @@
     itemBar.textFont = [UIFont systemFontOfSize:15.0f];
     itemBar.textNormalColor = [UIColor grayColor];
     itemBar.textSelectedColor = [UIColor purpleColor];
-    itemBar.itemCountPerScreen = 5;
+    itemBar.sliderColor = [UIColor blueColor];
     [self.view addSubview:itemBar];
     
 }
