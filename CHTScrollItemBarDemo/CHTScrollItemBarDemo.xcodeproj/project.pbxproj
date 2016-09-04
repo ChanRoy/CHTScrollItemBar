@@ -13,7 +13,7 @@
 		04E12A581D576236009D9A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A561D576236009D9A40 /* Main.storyboard */; };
 		04E12A5A1D576236009D9A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A591D576236009D9A40 /* Assets.xcassets */; };
 		04E12A5D1D576236009D9A40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A5B1D576236009D9A40 /* LaunchScreen.storyboard */; };
-		04E12A671D576308009D9A40 /* CHTScrollItemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E12A661D576308009D9A40 /* CHTScrollItemBar.m */; };
+		AE90672F1D5870E6005C24FB /* CHTScrollItemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AE90672E1D5870E6005C24FB /* CHTScrollItemBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,13 @@
 		04E12A591D576236009D9A40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04E12A5C1D576236009D9A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04E12A5E1D576236009D9A40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04E12A651D576308009D9A40 /* CHTScrollItemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTScrollItemBar.h; path = ../../../CHTScrollItemBar/CHTScrollItemBar.h; sourceTree = "<group>"; };
-		04E12A661D576308009D9A40 /* CHTScrollItemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTScrollItemBar.m; path = ../../../CHTScrollItemBar/CHTScrollItemBar.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		04E12A651D576308009D9A40 /* CHTScrollItemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTScrollItemBar.h; path = ../CHTScrollItemBar/CHTScrollItemBar.h; sourceTree = "<group>"; };
+		04E12A661D576308009D9A40 /* CHTScrollItemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTScrollItemBar.m; path = ../CHTScrollItemBar/CHTScrollItemBar.m; sourceTree = "<group>"; };
+=======
+		AE90672D1D5870E6005C24FB /* CHTScrollItemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTScrollItemBar.h; sourceTree = "<group>"; };
+		AE90672E1D5870E6005C24FB /* CHTScrollItemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTScrollItemBar.m; sourceTree = "<group>"; };
+>>>>>>> origin/master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +66,7 @@
 		04E12A4C1D576236009D9A40 /* CHTScrollItemBarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				04E12A641D576308009D9A40 /* CHTScrollItemBar */,
+				AE90672C1D5870E6005C24FB /* CHTScrollItemBar */,
 				04E12A501D576236009D9A40 /* AppDelegate.h */,
 				04E12A511D576236009D9A40 /* AppDelegate.m */,
 				04E12A531D576236009D9A40 /* ViewController.h */,
@@ -83,14 +88,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04E12A641D576308009D9A40 /* CHTScrollItemBar */ = {
+		AE90672C1D5870E6005C24FB /* CHTScrollItemBar */ = {
 			isa = PBXGroup;
 			children = (
-				04E12A651D576308009D9A40 /* CHTScrollItemBar.h */,
-				04E12A661D576308009D9A40 /* CHTScrollItemBar.m */,
+				AE90672D1D5870E6005C24FB /* CHTScrollItemBar.h */,
+				AE90672E1D5870E6005C24FB /* CHTScrollItemBar.m */,
 			);
-			path = CHTScrollItemBar;
+<<<<<<< HEAD
+			name = CHTScrollItemBar;
+			path = ../../CHTScrollItemBar;
 			sourceTree = "<group>";
+=======
+			path = CHTScrollItemBar;
+			sourceTree = SOURCE_ROOT;
+>>>>>>> origin/master
 		};
 /* End PBXGroup section */
 
@@ -165,7 +176,7 @@
 				04E12A551D576236009D9A40 /* ViewController.m in Sources */,
 				04E12A521D576236009D9A40 /* AppDelegate.m in Sources */,
 				04E12A4F1D576236009D9A40 /* main.m in Sources */,
-				04E12A671D576308009D9A40 /* CHTScrollItemBar.m in Sources */,
+				AE90672F1D5870E6005C24FB /* CHTScrollItemBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

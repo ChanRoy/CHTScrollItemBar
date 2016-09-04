@@ -1,0 +1,58 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CB506BA0AFD0B2B41541F22A228BA2EB06DEF06A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "95F61C1DAF837EBAA91C835A516F0E5EFA198444" : 0,
+    "4481CA5523ABECE2B229EA67A614B09F18CC9E56" : 0,
+    "AAFBAFE4A5D8A0A7AAAF00E9514F2A7E5D81D68F" : 0,
+    "CB506BA0AFD0B2B41541F22A228BA2EB06DEF06A" : 0,
+    "BA4C4A44E33CEE8BC1242A54EDA3FBC069F50D9E" : 0,
+    "ADAA3726A2729CF6B8A509BF9DB1A97066C1AA5A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B0D8E83B-4709-4BF4-90A6-62E919440D24",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "95F61C1DAF837EBAA91C835A516F0E5EFA198444" : "CHTCycleScrollView\/",
+    "4481CA5523ABECE2B229EA67A614B09F18CC9E56" : "CHTTextView\/",
+    "AAFBAFE4A5D8A0A7AAAF00E9514F2A7E5D81D68F" : "CHTLayoutButton\/",
+    "CB506BA0AFD0B2B41541F22A228BA2EB06DEF06A" : "CHTScrollItemBar\/",
+    "BA4C4A44E33CEE8BC1242A54EDA3FBC069F50D9E" : "CHTItemView\/",
+    "ADAA3726A2729CF6B8A509BF9DB1A97066C1AA5A" : "BaoKanIOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CHTScrollItemBarDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CHTScrollItemBarDemo\/CHTScrollItemBarDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ChanRoy\/CHTTextView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4481CA5523ABECE2B229EA67A614B09F18CC9E56"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ChanRoy\/CHTCycleScrollView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95F61C1DAF837EBAA91C835A516F0E5EFA198444"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ChanRoy\/CHTLayoutButton.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AAFBAFE4A5D8A0A7AAAF00E9514F2A7E5D81D68F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/6ag\/BaoKanIOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ADAA3726A2729CF6B8A509BF9DB1A97066C1AA5A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ChanRoy\/CHTItemView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BA4C4A44E33CEE8BC1242A54EDA3FBC069F50D9E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ChanRoy\/CHTScrollItemBar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CB506BA0AFD0B2B41541F22A228BA2EB06DEF06A"
+    }
+  ]
+}
