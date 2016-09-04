@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSArray *titles = @[@"小明",@"小红",@"小刚"];
+    NSArray *titles = @[@"小明",@"小红",@"小刚",@"小雪",@"小鱼",@"小江"];
     UIScrollView *relevantScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT - 40)];
     relevantScrollView.pagingEnabled = YES;
     relevantScrollView.showsHorizontalScrollIndicator = NO;
