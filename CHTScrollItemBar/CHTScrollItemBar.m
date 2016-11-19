@@ -69,6 +69,8 @@ static NSString *const kContentOffset = @"contentOffset";
     
     _itemCountPerScreen = ITEM_COUNT;
     _itemWidth = SCREEN_WIDTH / _itemCountPerScreen;
+    _textNormalColor = [UIColor blackColor];
+    _textSelectedColor = [UIColor redColor];
     
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     _scrollView.showsHorizontalScrollIndicator = NO;
@@ -93,6 +95,10 @@ static NSString *const kContentOffset = @"contentOffset";
 
 - (void)layoutItems{
     
+    if (_itemTitles.count < _itemCountPerScreen) {
+        self.itemCountPerScreen = _itemTitles.count;
+    }
+    
     for (UIView *view in _scrollView.subviews) {
         
         [view removeFromSuperview];
@@ -105,8 +111,8 @@ static NSString *const kContentOffset = @"contentOffset";
         itemBtn.tag = BUTTON_START_TAG + i;
         itemBtn.backgroundColor = [UIColor clearColor];
         [itemBtn setTitle:_itemTitles[i] forState:UIControlStateNormal];
-        [itemBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [itemBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [itemBtn setTitleColor:_textNormalColor forState:UIControlStateNormal];
+        [itemBtn setTitleColor:_textSelectedColor forState:UIControlStateSelected];
         [itemBtn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView addSubview:itemBtn];
         
@@ -195,6 +201,15 @@ static NSString *const kContentOffset = @"contentOffset";
             [btn setTitleColor:_textSelectedColor forState:UIControlStateSelected];
         }
     }
+}
+
+- (void)setSliderColor:(UIColor *)sliderColor{
+    
+    if (_sliderColor == sliderColor) {
+        return;
+    }
+    _sliderColor = sliderColor;
+    _sliderView.backgroundColor = sliderColor;
 }
 
 #pragma mark - button event
