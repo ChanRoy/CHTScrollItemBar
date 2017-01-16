@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B53B831D7C1B3F0001AF75 /* CHTScrollItemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B53B821D7C1B3F0001AF75 /* CHTScrollItemBar.m */; };
 		04E12A4F1D576236009D9A40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E12A4E1D576236009D9A40 /* main.m */; };
 		04E12A521D576236009D9A40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E12A511D576236009D9A40 /* AppDelegate.m */; };
 		04E12A551D576236009D9A40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E12A541D576236009D9A40 /* ViewController.m */; };
 		04E12A581D576236009D9A40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A561D576236009D9A40 /* Main.storyboard */; };
 		04E12A5A1D576236009D9A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A591D576236009D9A40 /* Assets.xcassets */; };
 		04E12A5D1D576236009D9A40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E12A5B1D576236009D9A40 /* LaunchScreen.storyboard */; };
+		AE8F99971E2CB5090086CB14 /* CHTScrollItemBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8F99961E2CB5090086CB14 /* CHTScrollItemBar.m */; };
 		AE90672F1D5870E6005C24FB /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04B53B811D7C1B3F0001AF75 /* CHTScrollItemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTScrollItemBar.h; sourceTree = "<group>"; };
-		04B53B821D7C1B3F0001AF75 /* CHTScrollItemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTScrollItemBar.m; sourceTree = "<group>"; };
 		04E12A4A1D576236009D9A40 /* CHTScrollItemBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHTScrollItemBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E12A4E1D576236009D9A40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04E12A501D576236009D9A40 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,6 +28,8 @@
 		04E12A591D576236009D9A40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04E12A5C1D576236009D9A40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04E12A5E1D576236009D9A40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE8F99951E2CB5090086CB14 /* CHTScrollItemBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTScrollItemBar.h; sourceTree = "<group>"; };
+		AE8F99961E2CB5090086CB14 /* CHTScrollItemBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTScrollItemBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 		04E12A4C1D576236009D9A40 /* CHTScrollItemBarDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AE90672C1D5870E6005C24FB /* CHTScrollItemBar */,
+				AE8F99941E2CB5090086CB14 /* CHTScrollItemBar */,
 				04E12A501D576236009D9A40 /* AppDelegate.h */,
 				04E12A511D576236009D9A40 /* AppDelegate.m */,
 				04E12A531D576236009D9A40 /* ViewController.h */,
@@ -84,14 +84,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AE90672C1D5870E6005C24FB /* CHTScrollItemBar */ = {
+		AE8F99941E2CB5090086CB14 /* CHTScrollItemBar */ = {
 			isa = PBXGroup;
 			children = (
-				04B53B811D7C1B3F0001AF75 /* CHTScrollItemBar.h */,
-				04B53B821D7C1B3F0001AF75 /* CHTScrollItemBar.m */,
+				AE8F99951E2CB5090086CB14 /* CHTScrollItemBar.h */,
+				AE8F99961E2CB5090086CB14 /* CHTScrollItemBar.m */,
 			);
 			name = CHTScrollItemBar;
-			path = ../CHTScrollItemBar;
+			path = ../../CHTScrollItemBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +168,7 @@
 				04E12A521D576236009D9A40 /* AppDelegate.m in Sources */,
 				04E12A4F1D576236009D9A40 /* main.m in Sources */,
 				AE90672F1D5870E6005C24FB /* (null) in Sources */,
-				04B53B831D7C1B3F0001AF75 /* CHTScrollItemBar.m in Sources */,
+				AE8F99971E2CB5090086CB14 /* CHTScrollItemBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +278,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CHTScrollItemBarDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = CHT.CHTScrollItemBarDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -289,8 +291,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CHTScrollItemBarDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = CHT.CHTScrollItemBarDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
