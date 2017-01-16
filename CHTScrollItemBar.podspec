@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'ChanRoy' => 'chen_ht89@163.com' } 
   s.source   = { :git => 'https://github.com/ChanRoy/CHTScrollItemBar.git', :tag => "0.0.1"} //git路径、指定tag号
   s.platform = :ios, "7.0" 
-  s.source_files = 'CHTScrollItemBar/*.{h,m}'  //库的源代码文件
+  s.source_files = 'CHTScrollItemBar/CHTScrollItemBar*.{h,m}'  //库的源代码文件
   s.framework = 'UIKit',"Foundation"  //依赖的framework
   s.requires_arc = true
 end
