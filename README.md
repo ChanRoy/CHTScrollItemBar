@@ -2,7 +2,7 @@
 
 上下联动的scrollView，用于多个界面的展示
 
-![] (https://github.com/ChanRoy/CHTScrollItemBar/blob/master/CHTScrollItemBar.gif)
+![CHTScrollItemBar](https://github.com/ChanRoy/CHTScrollItemBar/blob/master/CHTScrollItemBar.gif)
 
 ## 简介
 
