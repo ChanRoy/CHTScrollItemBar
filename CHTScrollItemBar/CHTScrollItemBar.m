@@ -13,8 +13,6 @@
 #define SCREEN_WIDTH        [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT       [UIScreen mainScreen].bounds.size.height
 
-static NSString *const kContentOffset = @"contentOffset";
-
 @interface CHTScrollItemBar ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSArray *itemTitles;
@@ -30,10 +28,6 @@ static NSString *const kContentOffset = @"contentOffset";
 }
 
 #pragma mark - lefe cycle
-- (void)dealloc{
-    
-    [_relevantScrollView removeObserver:self forKeyPath:kContentOffset];
-}
 
 - (instancetype)initWithFrame:(CGRect)frame itemTitles:(NSArray *)titles relevantScrollView:(UIScrollView *)relevantScrollView{
     
@@ -71,8 +65,14 @@ static NSString *const kContentOffset = @"contentOffset";
     _itemWidth = SCREEN_WIDTH / _itemCountPerScreen;
     _textNormalColor = [UIColor blackColor];
     _textSelectedColor = [UIColor redColor];
+    _textFont = [UIFont systemFontOfSize:15.0f];
+}
+
+- (void)layoutSubviews{
     
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(CGRectGetMinX(self.frame), CGRectGetMinY(self.frame), CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+    [super layoutSubviews];
+    
+    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator   = NO;
     _scrollView.pagingEnabled = NO;
@@ -80,6 +80,7 @@ static NSString *const kContentOffset = @"contentOffset";
     _scrollView.backgroundColor = [UIColor clearColor];
     [self addSubview:_scrollView];
     
+    [self layoutItems];
 }
 
 - (void)changeButtonState:(UIButton *)itemBtn{
@@ -113,6 +114,7 @@ static NSString *const kContentOffset = @"contentOffset";
         [itemBtn setTitle:_itemTitles[i] forState:UIControlStateNormal];
         [itemBtn setTitleColor:_textNormalColor forState:UIControlStateNormal];
         [itemBtn setTitleColor:_textSelectedColor forState:UIControlStateSelected];
+        itemBtn.titleLabel.font = _textFont;
         [itemBtn addTarget:self action:@selector(itemBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [_scrollView addSubview:itemBtn];
         
@@ -135,8 +137,6 @@ static NSString *const kContentOffset = @"contentOffset";
         return;
     }
     _itemTitles = itemTitles;
-    
-    [self layoutItems];
 }
 
 - (void)setRelevantScrollView:(UIScrollView *)relevantScrollView{
@@ -145,8 +145,7 @@ static NSString *const kContentOffset = @"contentOffset";
         return;
     }
     _relevantScrollView = relevantScrollView;
-    
-    [_relevantScrollView addObserver:self forKeyPath:kContentOffset options:NSKeyValueObservingOptionNew context:nil];
+    _relevantScrollView.delegate = self;
 }
 
 - (void)setItemCountPerScreen:(NSInteger)itemCountPerScreen{
@@ -156,15 +155,10 @@ static NSString *const kContentOffset = @"contentOffset";
     }
     _itemCountPerScreen = itemCountPerScreen;
     _itemWidth = SCREEN_WIDTH / _itemCountPerScreen;
-    
-    [self layoutItems];
 }
 
 - (void)setTextFont:(UIFont *)textFont{
     
-    if (_textFont == textFont) {
-        return;
-    }
     _textFont = textFont;
     
     for (UIView *view in _scrollView.subviews) {
@@ -217,52 +211,56 @@ static NSString *const kContentOffset = @"contentOffset";
 
     [self changeButtonState:itemBtn];
     
-    [UIView animateWithDuration:0.25f animations:^{
-      
-        CGRect tempFrame = _sliderView.frame;
-        tempFrame.origin.x = CGRectGetMinX(itemBtn.frame);
-        _sliderView.frame = tempFrame;
-    }];
-    
     [_relevantScrollView setContentOffset:CGPointMake(SCREEN_WIDTH * (itemBtn.tag - BUTTON_START_TAG), 0) animated:YES];
-    
 }
 
-#pragma mark - KVO
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+#pragma mark - scrollView delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    if (object == _relevantScrollView && [keyPath isEqualToString:kContentOffset]) {
-        
-        CGPoint offset = [change[NSKeyValueChangeNewKey] CGPointValue];
-        
-        if (offset.x < 0 || offset.x > CGRectGetWidth(_relevantScrollView.frame) * (_itemTitles.count - 1)) {
-            return;
-        }
-        CGFloat xOffset = offset.x / CGRectGetWidth(_relevantScrollView.frame) * _itemWidth;
-        
-        CGRect tempFrame = _sliderView.frame;
-        tempFrame.origin.x = xOffset;
-        _sliderView.frame = tempFrame;
-        
-        if (CGRectGetMinX(_sliderView.frame) < _scrollView.contentOffset.x) {
-            
-            [_scrollView scrollRectToVisible:CGRectMake(xOffset, 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame)) animated:YES];
-        }else if (CGRectGetMaxX(_sliderView.frame) - SCREEN_WIDTH > _scrollView.contentOffset.x){
-            
-            [_scrollView scrollRectToVisible:CGRectMake(CGRectGetMaxX(_sliderView.frame) - SCREEN_WIDTH, 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame)) animated:YES];
-        }
-        
-        if (_relevantScrollView.dragging) {
-            
-            NSInteger selectIndex = round(offset.x / SCREEN_WIDTH);
-            UIButton *btn = [_scrollView viewWithTag:selectIndex + BUTTON_START_TAG];
-            [self changeButtonState:btn];
-        }
-        
+    CGPoint offset = scrollView.contentOffset;
+    
+    if (offset.x < 0 || offset.x > CGRectGetWidth(_relevantScrollView.frame) * (_itemTitles.count - 1)) {
+        return;
     }
-    else{
+    CGFloat xOffset = offset.x / CGRectGetWidth(_relevantScrollView.frame) * _itemWidth;
+    
+    CGRect tempFrame = _sliderView.frame;
+    tempFrame.origin.x = xOffset;
+    _sliderView.frame = tempFrame;
+    
+    if (CGRectGetMinX(_sliderView.frame) < _scrollView.contentOffset.x) {
         
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        [_scrollView scrollRectToVisible:CGRectMake(xOffset, 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame)) animated:YES];
+    }else if (CGRectGetMaxX(_sliderView.frame) - SCREEN_WIDTH > _scrollView.contentOffset.x){
+        
+        [_scrollView scrollRectToVisible:CGRectMake(CGRectGetMaxX(_sliderView.frame) - SCREEN_WIDTH, 0, CGRectGetWidth(_scrollView.frame), CGRectGetHeight(_scrollView.frame)) animated:YES];
+    }
+    
+    if (_relevantScrollView.dragging) {
+        
+        NSInteger selectIndex = round(offset.x / SCREEN_WIDTH);
+        UIButton *btn = [_scrollView viewWithTag:selectIndex + BUTTON_START_TAG];
+        [self changeButtonState:btn];
+    }
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSInteger index = scrollView.contentOffset.x / SCREEN_WIDTH;
+    if (_delegate && [_delegate respondsToSelector:@selector(scrollItemBar:didScrollToIndex:)]) {
+        
+        [_delegate scrollItemBar:self didScrollToIndex:index];
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+    NSInteger index = scrollView.contentOffset.x / SCREEN_WIDTH;
+    if (_delegate && [_delegate respondsToSelector:@selector(scrollItemBar:didScrollToIndex:)]) {
+        
+        [_delegate scrollItemBar:self didScrollToIndex:index];
     }
 }
 

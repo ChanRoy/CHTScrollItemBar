@@ -7,6 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CHTScrollItemBar;
+
+@protocol CHTScrollItemBarDelegate <NSObject>
+
+@optional
+
+- (void)scrollItemBar:(CHTScrollItemBar *)scrollItemBar didScrollToIndex:(NSInteger)index;
+
+@end
 
 @interface CHTScrollItemBar : UIControl
 
@@ -30,6 +39,8 @@
  *  屏幕内显示几个按钮
  */
 @property (nonatomic, assign) NSInteger itemCountPerScreen;
+
+@property (nonatomic, weak) id <CHTScrollItemBarDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame
                    itemTitles:(NSArray *)titles

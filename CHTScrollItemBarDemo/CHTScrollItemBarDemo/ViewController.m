@@ -14,7 +14,7 @@
 #define RandomColor [UIColor colorWithRed:(random() % 256 / 255.0f) green:(random() % 256 / 255.0f) blue:(random() % 256 / 255.0f) alpha:1]
 
 
-@interface ViewController ()
+@interface ViewController ()<CHTScrollItemBarDelegate>
 
 @end
 
@@ -40,6 +40,7 @@
     }
     
     CHTScrollItemBar *itemBar = [[CHTScrollItemBar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    itemBar.delegate = self;
     [itemBar setupItemTitles:titles relevantScrollView:relevantScrollView];
     itemBar.textFont = [UIFont systemFontOfSize:15.0f];
     itemBar.textNormalColor = [UIColor grayColor];
@@ -49,6 +50,11 @@
     
 }
 
+#pragma mark - delegate
+- (void)scrollItemBar:(CHTScrollItemBar *)scrollItemBar didScrollToIndex:(NSInteger)index{
+    
+    NSLog(@"scroll to index: %ld",index);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
