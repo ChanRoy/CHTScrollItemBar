@@ -72,6 +72,11 @@
     
     [super layoutSubviews];
     
+    if (_scrollView) {
+        
+        [_scrollView removeFromSuperview];
+    }
+    
     _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator   = NO;
