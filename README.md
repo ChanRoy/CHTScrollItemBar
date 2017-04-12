@@ -54,7 +54,19 @@
      *  屏幕内显示几个按钮
      */
      @property (nonatomic, assign) NSInteger itemCountPerScreen;
-     
+    
+### 协议
+
+```
+@protocol CHTScrollItemBarDelegate <NSObject>
+
+@optional
+
+- (void)scrollItemBar:(CHTScrollItemBar *)scrollItemBar didScrollToIndex:(NSInteger)index;
+
+@end
+```
+ 
 ## Demo
      
      //初始化按钮
@@ -87,5 +99,8 @@
      itemBar.textSelectedColor = [UIColor purpleColor];
      itemBar.sliderColor = [UIColor blueColor];
      [self.view addSubview:itemBar];
+     
+## License
+MIT
 
 
