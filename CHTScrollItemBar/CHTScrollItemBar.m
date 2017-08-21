@@ -24,6 +24,7 @@
     
     UIScrollView *_scrollView;
     UIView *_sliderView;
+    UIView *_lineView;
     CGFloat _itemWidth;
 }
 
@@ -66,6 +67,8 @@
     _textNormalColor = [UIColor blackColor];
     _textSelectedColor = [UIColor redColor];
     _textFont = [UIFont systemFontOfSize:15.0f];
+    _lineColor = [UIColor grayColor];
+    _sliderColor = [UIColor colorWithRed:247.0 / 255.0 green:186.0 / 255.0 blue:26.0 / 255.0 alpha:0.6];
 }
 
 - (void)layoutSubviews{
@@ -86,6 +89,10 @@
     [self addSubview:_scrollView];
     
     [self layoutItems];
+    
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 0.5, CGRectGetWidth(self.frame), 0.5)];
+    _lineView.backgroundColor = _lineColor;
+    [self addSubview:_lineView];
 }
 
 - (void)changeButtonState:(UIButton *)itemBtn{
@@ -129,7 +136,7 @@
     }
     
     _sliderView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(_scrollView.frame) - 2, _itemWidth, 2)];
-    _sliderView.backgroundColor = [UIColor colorWithRed:247.0 / 255.0 green:186.0 / 255.0 blue:26.0 / 255.0 alpha:0.6];
+    _sliderView.backgroundColor = _sliderColor;
     [_scrollView addSubview:_sliderView];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) / _itemCountPerScreen * _itemTitles.count, CGRectGetHeight(_scrollView.frame));
@@ -209,6 +216,15 @@
     }
     _sliderColor = sliderColor;
     _sliderView.backgroundColor = sliderColor;
+}
+
+- (void)setLineColor:(UIColor *)lineColor {
+    
+    if (_lineColor == lineColor) {
+        return;
+    }
+    _lineColor = lineColor;
+    _lineView.backgroundColor = _lineColor;
 }
 
 #pragma mark - button event
