@@ -35,11 +35,10 @@
  *  滑块的颜色
  */
 @property (nonatomic, strong) UIColor *sliderColor;
-
 /**
- 底部横线的颜色
+ *  底部横线的颜色的颜色
  */
-@property (nonatomic, strong) UIColor *lineColor;
+@property (nonatomic, strong) UIColor *bottomLineColor;
 
 /**
  *  屏幕内显示几个按钮

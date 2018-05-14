@@ -2,7 +2,7 @@
 
 上下联动的scrollView，用于多个界面的展示
 
-![] (https://github.com/ChanRoy/CHTScrollItemBar/blob/master/CHTScrollItemBar.gif)
+![CHTScrollItemBar](https://github.com/ChanRoy/CHTScrollItemBar/blob/master/CHTScrollItemBar.gif)
 
 ## 简介
 
@@ -45,16 +45,32 @@
      /**
      *  按钮的选中颜色
      */
-    @property (nonatomic, strong) UIColor *textSelectedColor;
+     @property (nonatomic, strong) UIColor *textSelectedColor;
      /**
      *  滑块的颜色
      */
      @property (nonatomic, strong) UIColor *sliderColor;
      /**
+ 	  *  底部横线的颜色的颜色
+ 	  */
+	  @property (nonatomic, strong) UIColor *bottomLineColor;
+     /**
      *  屏幕内显示几个按钮
      */
      @property (nonatomic, assign) NSInteger itemCountPerScreen;
-     
+    
+### 协议
+
+```
+@protocol CHTScrollItemBarDelegate <NSObject>
+
+@optional
+
+- (void)scrollItemBar:(CHTScrollItemBar *)scrollItemBar didScrollToIndex:(NSInteger)index;
+
+@end
+```
+ 
 ## Demo
      
      //初始化按钮
@@ -87,5 +103,8 @@
      itemBar.textSelectedColor = [UIColor purpleColor];
      itemBar.sliderColor = [UIColor blueColor];
      [self.view addSubview:itemBar];
+     
+## License
+MIT
 
 

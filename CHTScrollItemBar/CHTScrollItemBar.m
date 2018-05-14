@@ -24,7 +24,7 @@
     
     UIScrollView *_scrollView;
     UIView *_sliderView;
-    UIView *_lineView;
+    UIView *_bottomLine;
     CGFloat _itemWidth;
 }
 
@@ -67,8 +67,6 @@
     _textNormalColor = [UIColor blackColor];
     _textSelectedColor = [UIColor redColor];
     _textFont = [UIFont systemFontOfSize:15.0f];
-    _lineColor = [UIColor grayColor];
-    _sliderColor = [UIColor colorWithRed:247.0 / 255.0 green:186.0 / 255.0 blue:26.0 / 255.0 alpha:0.6];
 }
 
 - (void)layoutSubviews{
@@ -89,10 +87,6 @@
     [self addSubview:_scrollView];
     
     [self layoutItems];
-    
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 0.5, CGRectGetWidth(self.frame), 0.5)];
-    _lineView.backgroundColor = _lineColor;
-    [self addSubview:_lineView];
 }
 
 - (void)changeButtonState:(UIButton *)itemBtn{
@@ -136,8 +130,14 @@
     }
     
     _sliderView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(_scrollView.frame) - 2, _itemWidth, 2)];
-    _sliderView.backgroundColor = _sliderColor;
+    _sliderView.backgroundColor = [UIColor colorWithRed:247.0 / 255.0 green:186.0 / 255.0 blue:26.0 / 255.0 alpha:0.6];
     [_scrollView addSubview:_sliderView];
+    
+    // bottom line
+    CGFloat lineH = 0.5;
+    _bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(_scrollView.frame) - lineH, CGRectGetWidth(_scrollView.frame), lineH)];
+    _bottomLine.backgroundColor = [UIColor colorWithRed:229.0 / 255.0 green:229.0 / 255.0 blue:229.0 / 255.0 alpha:1];;
+    [_scrollView addSubview:_bottomLine];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) / _itemCountPerScreen * _itemTitles.count, CGRectGetHeight(_scrollView.frame));
 }
@@ -216,15 +216,6 @@
     }
     _sliderColor = sliderColor;
     _sliderView.backgroundColor = sliderColor;
-}
-
-- (void)setLineColor:(UIColor *)lineColor {
-    
-    if (_lineColor == lineColor) {
-        return;
-    }
-    _lineColor = lineColor;
-    _lineView.backgroundColor = _lineColor;
 }
 
 #pragma mark - button event
