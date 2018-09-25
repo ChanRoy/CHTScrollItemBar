@@ -140,9 +140,32 @@
     [_scrollView addSubview:_bottomLine];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(_scrollView.frame) / _itemCountPerScreen * _itemTitles.count, CGRectGetHeight(_scrollView.frame));
+    
+    if (_itemTitles.count > _currentIndex) {
+        
+        UIButton *itemBtn = [_scrollView viewWithTag:_currentIndex + BUTTON_START_TAG];
+        [self itemBtnClick:itemBtn];
+    }
 }
 
 #pragma mark - set methods
+
+- (void)setScrollEnable:(BOOL)scrollEnable {
+    
+    _scrollEnable = scrollEnable;
+    
+    _scrollView.scrollEnabled = _scrollEnable;
+    _relevantScrollView.scrollEnabled = _scrollEnable;
+    _sliderView.backgroundColor = _scrollEnable ? _sliderColor : _textNormalColor;
+    [_scrollView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull subView, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([subView isKindOfClass:[UIButton class]]) {
+            
+            ((UIButton *)subView).enabled = self.scrollEnable;
+        }
+    }];
+}
+
 - (void)setItemTitles:(NSArray *)itemTitles{
     
     if (_itemTitles == itemTitles) {

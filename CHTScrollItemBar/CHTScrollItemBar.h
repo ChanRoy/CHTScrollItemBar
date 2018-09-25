@@ -45,6 +45,16 @@
  */
 @property (nonatomic, assign) NSInteger itemCountPerScreen;
 
+/**
+ *  是否能够滑动
+ */
+@property (nonatomic, assign, getter=isScrollEnable) BOOL scrollEnable;
+
+/**
+ *  当前index
+ */
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @property (nonatomic, weak) id <CHTScrollItemBarDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame
