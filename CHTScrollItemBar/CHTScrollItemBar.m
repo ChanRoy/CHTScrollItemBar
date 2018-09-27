@@ -63,7 +63,7 @@
     self.backgroundColor = [UIColor colorWithRed:255 / 255.0 green:255 / 255.0 blue:255 / 255.0 alpha:1];
     
     _itemCountPerScreen = ITEM_COUNT;
-    _itemWidth = SCREEN_WIDTH / _itemCountPerScreen;
+    _itemWidth = CGRectGetWidth(self.frame) / _itemCountPerScreen;
     _textNormalColor = [UIColor blackColor];
     _textSelectedColor = [UIColor redColor];
     _textFont = [UIFont systemFontOfSize:15.0f];
@@ -189,7 +189,7 @@
         return;
     }
     _itemCountPerScreen = itemCountPerScreen;
-    _itemWidth = SCREEN_WIDTH / _itemCountPerScreen;
+    _itemWidth = CGRectGetWidth(self.frame) / _itemCountPerScreen;
 }
 
 - (void)setTextFont:(UIFont *)textFont{
